@@ -115,7 +115,7 @@ export function App(params) {
               <td className={'label'} >Pass:</td>
               <td><input
                 type="text"
-                name="text"
+                name="password"
                 onChange={(e) => handleInputChange(e)}
                 value={formObject.password}
                 placeholder="password" /></td>
