@@ -20,7 +20,7 @@ export function App(params) {
 
   const handleListClick = function(item){
     log("in handleListClick()");
-    if (formObject.id == item.id){
+    if (formObject.id === item.id){
       setFormObject(blankCustomer);
     }
     else {
@@ -52,12 +52,61 @@ export function App(params) {
 }
   
   let onSaveClick = function () {
-    let postopCallback = () => { setFormObject(blankCustomer); }
-    if (mode === 'Add') {
-      post(formObject, postopCallback);
+    let postOpCallback = () => { setFormObject(blankCustomer); getAll(setCustomers); }
+    const inputName = formObject.name.trim();
+    const inputEmail = formObject.email.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!inputName) {
+      alert("Name cannot be blank.");
+      return;
     }
-    if (mode === 'Update') {
-      put(formObject, postopCallback);
+    if (!inputEmail) {
+      alert("Email cannot be blank.");
+      return;
+    }
+    if (!emailPattern.test(inputEmail)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const inputNameLower = formObject.name.trim().toLowerCase();
+    const inputEmailLower = formObject.email.trim().toLowerCase();
+
+    if (mode === 'Add') {
+      const isDuplicate = customers.some(item => 
+        item.name.trim().toLowerCase() === inputNameLower
+      );
+      const isDuplicateb = customers.some(item =>
+        item.email.trim().toLowerCase() === inputEmailLower
+      );
+      if (isDuplicate) {
+        alert("Duplicate record: name already exists");
+        return;
+      }
+      if (isDuplicateb) {
+        alert("Duplicate record: email already exists");
+        return;
+      }
+        post(formObject, postOpCallback);
+    } else if (mode === 'Update') {
+      const isDuplicatec = customers.some(item => 
+        item.id !== formObject.id &&
+        item.name.trim().toLowerCase() === inputNameLower
+      );
+      const isDuplicated = customers.some(item => 
+        item.id !== formObject.id &&
+        item.email.trim().toLowerCase() === inputEmailLower
+      );
+      if (isDuplicatec) {
+        alert("Duplicate record: name already exists");
+        return;
+      }
+      if (isDuplicated) {
+        alert("Duplicate record: email already exists");
+        return;
+      }
+        put(formObject, postOpCallback);
+        return;
     }
   }
 

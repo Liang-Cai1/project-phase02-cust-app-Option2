@@ -20,7 +20,7 @@ export function CustomerList(params){
                   >
                     <td>{item.name}</td>
                     <td>{item.email}</td>
-                    <td>{item.password}</td>
+                    <td>{"*hidden*"}</td>
                   </tr>);
                 }
               )}

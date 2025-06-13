@@ -29,7 +29,7 @@ export function CustomerAddUpdateForm(params) {
               <tr>
                 <td className={'label'} >Pass:</td>
                 <td><input
-                  type="text"
+                  type="password"
                   name="password"
                   onChange={(e) => params.handleInputChange(e)}
                   value={params.formObject.password}
