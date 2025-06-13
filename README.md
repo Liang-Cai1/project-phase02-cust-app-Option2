@@ -69,3 +69,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 "# project-phase02-cust-app" 
+"# project-phase02-cust-app-Option1" 
+"# project-phase02-cust-app-Option2-REST" 
