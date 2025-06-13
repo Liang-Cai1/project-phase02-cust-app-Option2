@@ -1,7 +1,7 @@
 {
   "name": "phase02-cust-app",
   "version": "0.1.0",
-  "homepage": "https://Liang-Cai1.github.io/project-phase02-cust-app",
+  "homepage": "https://Liang-Cai1.github.io/project-phase02-cust-app-Option2-REST",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
